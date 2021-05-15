@@ -3,16 +3,21 @@
 // UpperCamelCase
 
 
-// 超级块 4*6+1000 = 1024B
+// 超级块 4*11+980 = 1024B
 struct SuperBlock
 {
     unsigned int size;                     // 磁盘大小
+    unsigned int start;                    // 总起始块号
     unsigned int fileDirStart;             // 文件目录表起始块号
     unsigned int inodeBitmapStart;         // inode位图起始块号
     unsigned int blockBitmapStart;         // 空闲块位图起始块号
     unsigned int inodeStart;               // inode块起始块号
-    unsigned int BlockStart;               // 数据块起始块号
-    char fill[1000];                       // 填充
+    unsigned int blockStart;               // 数据块起始块号
+    unsigned int blockNum;                 // 数据块总数
+    unsigned int blockSize;                // 数据块大小
+    unsigned int diskInodeNum;             // inode总数
+    unsigned int diskInodeSize;            // inode大小
+    char fill[980];                       // 填充
 };
 
 // 磁盘索引节点 64B
