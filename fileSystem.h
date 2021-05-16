@@ -125,6 +125,16 @@ int createFile()
 {
     int a;
 }
+void getTime(long int timeStamp)
+{
+	time_t timer;
+	timer = timeStamp;
+	struct tm *p;
+	p = gmtime(&timer);
+	char s[80];
+	strftime(s, 80, "%Y-%m-%d %H:%M:%S", p);
+	printf("%s", s);
+}
 
 int dispatcher()
 {
